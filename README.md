@@ -18,3 +18,10 @@ Comment le fait de copier package*.json avant le reste aide le cache Docker ?
 Pas de réinstallation de dépendances et donc aussi plus rapide 
 
 
+
+Mini compte-rendu :
+L’image classic pèse environ 1 GB, tandis que l’image multistage descend à environ 200 MB, soit une réduction considérable du pois d'image.
+
+Le multi-stage permet de réduire le poids car en éliminant les dépendances de développement et les outils de build dans l’image finale. On évite de copier des fichiers inutiles en ne gardant que les choses nécessaires.
+
+En production, une amélioration supplémentaire serait d’utiliser une image plus minimale comme node:alpine, ou d’exécuter l’application avec un utilisateur non-root que l'on créee avant pour renforcer la sécurité.
